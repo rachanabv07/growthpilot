@@ -1,0 +1,69 @@
+growthpilot-ai/
+│
+├── app/
+│   ├── api/                     # FastAPI routes
+│   │   ├── routes/
+│   │   │   ├── webhook.py
+│   │   │   ├── jobs.py
+│   │   │   ├── regenerate.py
+│   │   │   └── health.py
+│   │   └── deps.py             # dependencies (DB, auth, etc.)
+│   │
+│   ├── core/                   # configs & settings
+│   │   ├── config.py
+│   │   ├── logging.py
+│   │   └── constants.py
+│   │
+│   ├── agents/                 # ALL agents (very important)
+│   │   ├── context_agent.py
+│   │   ├── strategy_agent.py
+│   │   ├── content_agent.py
+│   │   ├── evaluation_agent.py
+│   │   ├── image_agent.py
+│   │   └── __init__.py
+│   │
+│   ├── graph/                  # LangGraph orchestration
+│   │   ├── state.py
+│   │   ├── nodes.py
+│   │   ├── edges.py
+│   │   └── builder.py
+│   │
+│   ├── services/               # external integrations
+│   │   ├── llm_service.py      # OpenRouter (Grok)
+│   │   ├── image_service.py    # Seedream
+│   │   ├── sheets_service.py   # Google Sheets (optional pull)
+│   │   └── scheduler.py
+│   │
+│   ├── db/
+│   │   ├── models.py           # SQLAlchemy models
+│   │   ├── schemas.py          # Pydantic schemas
+│   │   ├── session.py
+│   │   └── crud/
+│   │       ├── jobs.py
+│   │       └── outputs.py
+│   │
+│   ├── workers/                # background execution
+│   │   ├── worker.py
+│   │   └── tasks.py
+│   │
+│   ├── utils/
+│   │   ├── prompts.py
+│   │   ├── scoring.py
+│   │   └── helpers.py
+│   │
+│   └── main.py                 # FastAPI entrypoint
+│
+├── scripts/                    # one-off scripts
+│   ├── seed_data.py
+│   └── run_local_worker.py
+│
+├── tests/                      # unit + integration tests
+│   ├── test_agents.py
+│   ├── test_api.py
+│   └── test_graph.py
+│
+├── .env
+├── .gitignore
+├── requirements.txt
+├── README.md
+└── docker-compose.yml
