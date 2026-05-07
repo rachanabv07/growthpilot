@@ -5,7 +5,7 @@ import os
 import base64
 
 from app.core.config import OPENROUTER_API_KEY
-
+from app.core.config import BASE_URL
 
 URL = "https://openrouter.ai/api/v1/chat/completions"
 
@@ -68,4 +68,4 @@ def generate_image(prompt: str):
         f.write(image_bytes)
 
     # Return public URL
-    return f"http://127.0.0.1:8000/{filename}"
+    return f"{BASE_URL}/{filename}"
